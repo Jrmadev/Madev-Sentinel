@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Madev Sentinel - Powered by VirusTotal API</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        <span style="font-size: 1.5em">🛡️</span>Madev
+        <span style="color: #888">– Sentinel</span>
+      </h1>
+
+      <section>
+        <h2>Scanner une URL</h2>
+        <input
+          type="text"
+          id="urlInput"
+          placeholder="Entrer l'URL (format : https://example.com)"
+        />
+        <button onclick="scanURL()">Scanner l'URL</button>
+      </section>
+
+      <section>
+        <h2>Scanner un fichier</h2>
+        <input type="file" id="fileInput" />
+        <button onclick="scanFile()">Scanner le fichier</button>
+      </section>
+
+      <div id="result"></div>
+
+      <div id="fullReportModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2>Full Report</h2>
+          <div id="fullReportContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
