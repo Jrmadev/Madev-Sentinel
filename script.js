@@ -1,3 +1,11 @@
+const apiKey = process.env.API_KEY;
+
+if (!apiKey) {
+  throw new Error("API_KEY is not defined");
+}
+
+// ton code qui utilise apiKey
+
 // Exemple : scan d’un fichier ou d’une URL
 async function scanFile(fileData) {
   try {
