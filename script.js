@@ -244,6 +244,17 @@ function showFullReport(reportData) {
     modal.classList.add("show");
 }
 
+async function scanFile(fileHash) {
+  const response = await fetch('/.netlify/functions/scanVirus', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fileHash }),
+  });
+
+  const data = await response.json();
+  console.log(data);
+}
+
 // Fermer la modale
 const closeModal = () => {
     const modal = getElement("fullReportModal");
