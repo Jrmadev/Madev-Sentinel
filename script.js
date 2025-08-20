@@ -1,11 +1,9 @@
-const apiKey = process.env.API_KEY;
-
-if (!apiKey) {
-  throw new Error("API_KEY is not defined");
-}
-
 // ton code qui utilise apiKey
-
+fetch("/.netlify/functions/scanVirus")
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+  
 // Exemple : scan d’un fichier ou d’une URL
 async function scanFile(fileData) {
   try {
