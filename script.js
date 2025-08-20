@@ -1,5 +1,19 @@
-// API Key depuis VirusTotal API doc. (Attention : à ne pas exposer publiquement en prod)
-const API_KEY = "71fdfb895c93a57f5210e3a60cc10bd29fc0595b3a331501a000c9bd0d20d1e9";
+// Exemple : scan d’un fichier ou d’une URL
+async function scanFile(fileData) {
+  try {
+    const response = await fetch('/.netlify/functions/scanVirus', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ file: fileData }) // ou url: "..." si tu scannes une URL
+    });
+
+    const result = await response.json();
+    console.log('Résultat du scan :', result);
+    return result;
+  } catch (error) {
+    console.error('Erreur lors du scan :', error);
+  }
+}
 
 // Fonction utile pour avoir les éléments DOM depuis l'ID.
 const getElement = id => document.getElementById(id);
